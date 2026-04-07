@@ -17,6 +17,7 @@ package: build
 	mkdir -p "$(BUILD_DIR)/$(APP_NAME).app/Contents/Resources"; \
 	cp "$$BIN_PATH" "$(BUILD_DIR)/$(APP_NAME).app/Contents/MacOS/$(APP_NAME)"
 	cp "$(INFO_PLIST)" "$(BUILD_DIR)/$(APP_NAME).app/Contents/Info.plist"
+	cp Resources/AppIcon.icns "$(BUILD_DIR)/$(APP_NAME).app/Contents/Resources/AppIcon.icns"
 	printf 'APPL????' > "$(BUILD_DIR)/$(APP_NAME).app/Contents/PkgInfo"
 	codesign --force --deep --sign - --entitlements "$(ENTITLEMENTS)" "$(BUILD_DIR)/$(APP_NAME).app"
 	@echo "Built: $(BUILD_DIR)/$(APP_NAME).app"
